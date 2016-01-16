@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <title>To Do</title>
+        <script src="node_modules/angular/angular.min.js"></script>
+        <script src="todo.js"></script>
+        <script src="app.js"></script>
+    </head>
+    <body ng-app="toDoApp">
+        <div ng-controller="todoCtrl as ctrl">
+            Title: 
+            <input required ng-model="ctrl.selected.title"/>
+            Done: 
+            <input type="checkbox" ng-model="ctrl.selected.done"/>
+            <span ng-if="ctrl.selected.done">Yes</span>
+            <span ng-if="!ctrl.selected.done">No</span>
+            <br/>
+            <input type="button" value="Add"
+                ng-click="ctrl.add()" ng-disabled="ctrl.editing||!ctrl.selected.title"/>
+            <input type="button" value="Done Updating"
+                ng-click="ctrl.cancel()" ng-disabled="!ctrl.editing"/>
+            <br/>
+            <div ng-if="ctrl.list.length">Click to select:</div>
+            <ul>
+                <li ng-repeat="todo in ctrl.list" ng-click="ctrl.selected=todo;ctrl.editing=true">
+                    <span ng-if="todo.done">{{todo.title}}</span>
+                    <b ng-if="!todo.done">{{todo.title}}</b>
+                    [<span ng-click="ctrl.delete(todo)">X</span>]
+                </li>
+            </ul>
+            
+        </div>
+    </body>
+</html>

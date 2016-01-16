@@ -1,0 +1,22 @@
+{
+  "name": "todoangularapp",
+  "version": "1.0.0",
+  "description": "Sample app to upgrade Angular",
+  "main": "app.js",
+  "scripts": {
+    "tsc":"tsc",
+    "tsc:w": "tsc -w",
+    "lite": "lite-server",
+    "start" : "concurrent \"npm run tsc:w\" \"npm run lite\""
+  },
+  "author": "Jeremy Likness",
+  "license": "MIT",
+  "dependencies" : {
+      "angular" : "^1.4.8"
+  },
+  "devDependencies": {
+      "concurrently" : "^1.0.0",
+      "lite-server" : "^1.3.2",
+      "typescript" : "^1.7.5"
+  }
+}
