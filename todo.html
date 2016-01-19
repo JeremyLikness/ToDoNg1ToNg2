@@ -1,0 +1,23 @@
+<div>
+    Title: 
+    <input required [(ngModel)]="selected.title"/>
+    Done: 
+    <input type="checkbox" [(ngModel)]="selected.done"/>
+    <span *ngIf="selected.done">Yes</span>
+    <span *ngIf="!selected.done">No</span>
+    <br/>
+    <input type="button" value="Add"
+        (click)="add()" [disabled]="editing||!selected.title"/>
+    <input type="button" value="Done Updating"
+        (click)="cancel()" [disabled]="!editing"/>
+    <br/>
+    <div *ngIf="list.length">Click to select:</div>
+    <ul>
+        <li *ngFor="#todo of list" (click)="selected=todo;editing=true">
+            <span *ngIf="todo.done">{{todo.title}}</span>
+            <b *ngIf="!todo.done">{{todo.title}}</b>
+            [<span (click)="delete(todo)">X</span>]
+        </li>
+    </ul>
+    
+</div>

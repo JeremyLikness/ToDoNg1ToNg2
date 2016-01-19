@@ -2,8 +2,27 @@
     <head>
         <title>To Do</title>
         <script src="node_modules/angular/angular.min.js"></script>
-        <script src="todo.js"></script>
-        <script src="app.js"></script>
+        <script src="todo.js"></script><!-- remove this for upgrade -->
+        <script src="app.js"></script><!-- remove this for upgrade -->
+        <!-- uncomment after this line for upgrade 
+        <script src="node_modules/angular2/bundles/angular2-polyfills.js"></script>
+        <script src="node_modules/systemjs/dist/system.src.js"></script>
+        <script src="node_modules/rxjs/bundles/Rx.js"></script>
+        <script src="node_modules/angular2/bundles/angular2.dev.js"></script>
+        <script src="node_modules/angular2/bundles/upgrade.dev.js"></script>
+        <script>
+            System.config({
+                packages: {
+                    app: {
+                        format: "register",
+                        defaultExtension: "js"
+                    }
+                }
+            })
+            System.import('app/app')
+            .then(null, console.error.bind(console));
+            </script>
+        -->
     </head>
     <body ng-app="toDoApp">
         <div ng-controller="todoCtrl as ctrl">
@@ -27,7 +46,10 @@
                     [<span ng-click="ctrl.delete(todo)">X</span>]
                 </li>
             </ul>
-            
+            <!-- uncomment after this line for upgrade
+            <hr/>
+                <todo>Angular 2</todo> 
+            -->
         </div>
     </body>
 </html>
